@@ -3,3 +3,4 @@ matplotlib
 numpy
 sphinx-jupyterbook-latex
 sphinx-proof
+sphinx-serve
