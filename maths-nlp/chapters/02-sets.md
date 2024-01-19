@@ -18,7 +18,7 @@ Fait :
 - Propriété des opérateurs ensemblistes.
 - Produit cartésien $×$.
 - Notations $⊃$, $\not⊂$ et $∋$.
-- Ensembles de nombres usuels $ℕ$, $ℤ$, $ℚ$, $ℝ.
+- Ensembles de nombres usuels $ℕ$, $ℤ$, $ℚ$, $ℝ$.
 
 ## Exercices
 
