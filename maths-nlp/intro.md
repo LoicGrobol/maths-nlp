@@ -26,9 +26,7 @@ Les sources des supports sont sur [github](https://github.com/loicgrobol/maths-n
 vous trouverez essentiellement des exercices et des liens sur ces pages. Elles devraient s'étoffer
 avec le temps.
 
-### 2024-01-19 — Logique, ensembles, fonctions
-
-
+### 2024-01-19 — Logique et ensembles
 
 ## Licence
 
