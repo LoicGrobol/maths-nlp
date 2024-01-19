@@ -5,4 +5,6 @@ format: jb-book
 root: intro
 chapters:
   - file: chapters/01-logic.md
+  - file: chapters/02-sets.md
+  - file: chapters/03-functions.md
 
