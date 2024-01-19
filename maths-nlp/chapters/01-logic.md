@@ -3,6 +3,24 @@
 Logique
 =======
 
+- Logique formelle comme modèle simplifié de la logique usuelle.
+- Symboles $\operatorname{VRAI}$ et $\operatorname{FAUX}$
+- Opérateurs logiques $\operatorname{ET}$, $\operatorname{OU}$, $\operatorname{NON}$
+- Formules logiques et prédicats
+- Calcul booléen et tables de vérités
+- Équivalence entre prédicats
+- Commutativité, associativité, idempotence de  $\operatorname{NON}$
+- Lois de De Morgan
+- Opérateurs $\operatorname{XOR}$, $\operatorname{NAND}$, $\operatorname{NOR}$, $⇒$,
+  $\operatorname{⇔}$
+- Universalité de $\operatorname{NAND}$
+- Notations $¬$, $∧$, $∨$, $⊗$.
+
+À faire :
+
+- tautologie, contradiction
+- tiers exclu
+
 ## Exercices
 
 ### Calcul booléen
@@ -18,6 +36,8 @@ Développer et simplifier au maximum les formules logiques suivantes
 7. $\operatorname{NON} (A \operatorname{OU} B \operatorname{OU} \operatorname{FAUX})$
 
 ### Tautologies
+
+On dit qu'un prédicat est une tautologie s'il est vrai quelle que soit la valeur donnée à ses variables. On dit qu'il est une contradiction s'il est faux quelle que soit la valeur donnée à ses variables. Attention : un prédicat peut n'être ni l'un ni l'autre.
 
 Pour chacune des expressions suivantes, déterminer à l'aide d'une table de vérité s'il s'agit d'une
 tautologie, d'une contradiction, ou ni l'une ni l'autre.

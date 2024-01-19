@@ -3,6 +3,22 @@
 Ensembles
 =========
 
+Fait :
+
+- Définitions : ensemble, $∈$, complémentaire absolu ($⋅^c$), $⊂$, parties d'un ensemble, ensemble
+  vide
+- Égalités entre ensembles
+- Intersection $∩$ et union $∪$
+- Définitions intensionelles et extensionelles d'un ensemble
+
+À faire :
+
+- Lois de De Morgan
+- Soustractions d'ensembles (complémentaire relatif)
+- Propriété des opérateurs ensemblistes
+- Ensembles de nombres usuels
+- Produit cartésien
+
 ## Exercices
 
 ### Opérations ensemblistes
