@@ -3,23 +3,23 @@
 Logique
 =======
 
-- Logique formelle comme modèle simplifié de la logique usuelle.
-- Symboles $\operatorname{VRAI}$ et $\operatorname{FAUX}$
-- Opérateurs logiques $\operatorname{et}$, $\operatorname{ou}$, $\operatorname{non}$
-- Formules logiques et prédicats
-- Calcul booléen et tables de vérités
-- Équivalence entre prédicats
-- Commutativité, associativité, idempotence de  $\operatorname{non}$
-- Lois de De Morgan
-- Opérateurs $\operatorname{xor}$, $\operatorname{nand}$, $\operatorname{nor}$, $⇒$,
-  $\operatorname{⇔}$
-- Universalité de $\operatorname{nand}$
+- Logique formelle comme modèle simplifié de la logique usuelle..
+- Symboles $\operatorname{VRAI}$ et $\operatorname{FAUX}$.
+- Opérateurs logiques $\operatorname{et}$, $\operatorname{ou}$, $\operatorname{non}$.
+- Formules logiques et prédicats.
+- Calcul booléen et tables de vérités.
+- Équivalence entre prédicats.
+- Commutativité, associativité, idempotence de  $\operatorname{non}$.
+- Lois de De Morgan.
+- Opérateurs $\operatorname{xor}$, $\operatorname{nand}$, $\operatorname{nor}$, $⇒$,.
+  $\operatorname{⇔}$.
+- Universalité de $\operatorname{nand}$.
 - Notations $¬$, $∧$, $∨$, $⊗$.
 
 À faire :
 
-- tautologie, contradiction
-- tiers exclu
+- Tautologie, contradiction.
+- Tiers exclu.
 
 ## Exercices
 
