@@ -7,7 +7,7 @@ Ensembles
 
 ### Opérations ensemblistes
 
-1\. Calculez les résultat des opération suivantes :
+1\. Calculez les résultats des opérations suivantes :
 
 1. $\{0, 1, 2, 3, 4\} ∩ \{0, 2, 4, 6, 8\}$
 2. $\{0, 1, 2, 3, 4\} ∪ \{0, 2, 4, 6, 8\}$
