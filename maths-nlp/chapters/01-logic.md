@@ -9,23 +9,23 @@ Logique
 
 Développer et simplifier au maximum les formules logiques suivantes
 
-1. $\mathrm{VRAI} \mathrm{ET} \mathrm{VRAI}$
-2. $\mathrm{VRAI} \mathrm{ET} (\mathrm{VRAI} \mathrm{OU} \mathrm{FAUX})$
-3. $\mathrm{VRAI} \mathrm{ET} A$
-4. $A \mathrm{OU} \mathrm{FAUX}$
-5. $ζ \mathrm{OU} (\mathrm{NON} ζ)$
-6. $(A \mathrm{OU} (\mathrm{NON} B)) \mathrm{OU} B$
-7. $\mathrm{NON} (A \mathrm{OU} B \mathrm{OU} \mathrm{FAUX})$
+1. $\operatorname{VRAI} \operatorname{ET} \operatorname{VRAI}$
+2. $\operatorname{VRAI} \operatorname{ET} (\operatorname{VRAI} \operatorname{OU} \operatorname{FAUX})$
+3. $\operatorname{VRAI} \operatorname{ET} A$
+4. $A \operatorname{OU} \operatorname{FAUX}$
+5. $ζ \operatorname{OU} (\operatorname{NON} ζ)$
+6. $(A \operatorname{OU} (\operatorname{NON} B)) \operatorname{OU} B$
+7. $\operatorname{NON} (A \operatorname{OU} B \operatorname{OU} \operatorname{FAUX})$
 
 ### Tautologies
 
 Pour chacune des expressions suivantes, déterminer à l'aide d'une table de vérité s'il s'agit d'une
 tautologie, d'une contradiction, ou ni l'une ni l'autre.
 
-1. $(A \mathrm{OU} B) \mathrm{OU} (\mathrm{NON} A)$
-2. $((\mathrm{NON} A) \mathrm{OU} B) \mathrm{OU} (\mathrm{NON} A)$
-3. $(\mathrm{NON} (A \mathrm{OU} B)) \mathrm{OU} A$
-4. $(A \mathrm{OU} B) \mathrm{ET} C$
+1. $(A \operatorname{OU} B) \operatorname{OU} (\operatorname{NON} A)$
+2. $((\operatorname{NON} A) \operatorname{OU} B) \operatorname{OU} (\operatorname{NON} A)$
+3. $(\operatorname{NON} (A \operatorname{OU} B)) \operatorname{OU} A$
+4. $(A \operatorname{OU} B) \operatorname{ET} C$
 
 ### Équivalences
 

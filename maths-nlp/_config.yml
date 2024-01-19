@@ -32,6 +32,7 @@ html:
   use_repository_button: true
 
 sphinx:
+  html_show_copyright: false
   extra_extensions:
     - sphinx_proof
   config:
