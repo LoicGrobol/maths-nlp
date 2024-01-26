@@ -16,7 +16,7 @@ Fait :
 - Lois de De Morgan.
 - Soustractions d'ensembles (complémentaire relatif).
 - Propriété des opérateurs ensemblistes.
-- Produit cartésien $×$.
+- Produit cartésien $×$ et $n$-uplets
 - Notations $⊃$, $\not⊂$ et $∋$.
 - Ensembles de nombres usuels $ℕ$, $ℤ$, $ℚ$, $ℝ$.
 
