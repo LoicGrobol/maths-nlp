@@ -1,2 +1,12 @@
+line-length:
+  line_length: 100
+  heading_line_length: 100
+  code_block_line_length: 100
+  code_blocks: false
+  tables: false
+  headings: true
+  strict: false
+  stern: false
+
 MD003: false
 MD010: false

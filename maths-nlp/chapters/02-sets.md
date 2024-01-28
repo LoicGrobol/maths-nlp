@@ -7,18 +7,26 @@ Fait :
 
 - Définitions : ensemble, $∈$, $∉$, complémentaire absolu ($⋅^c$), $⊂$, parties d'un ensemble,
   ensemble vide.
+- Notations $⊃$, $\not⊂$ et $∋$.
 - Égalités entre ensembles.
 - Intersection $∩$ et union $∪$.
 - Définitions en intension et en extension d'un ensemble.
+- Soustractions d'ensembles (complémentaire relatif).
+- Propriété des opérateurs ensemblistes.
+  - Associativité.
+  - Distributivité
+  - Lois de De Morgan.
+- Ensembles de nombres usuels $ℕ$, $ℤ$, $ℚ$, $ℝ$.
+  - Notation $ℕ^*$
+  - Propriété de récurrence (énoncé).
+  - Écriture décimale.
+  - Intervalles réels.
+- Produit cartésien $×$ et $n$-uplets
 
 À faire :
 
-- Lois de De Morgan.
-- Soustractions d'ensembles (complémentaire relatif).
-- Propriété des opérateurs ensemblistes.
-- Produit cartésien $×$ et $n$-uplets
-- Notations $⊃$, $\not⊂$ et $∋$.
-- Ensembles de nombres usuels $ℕ$, $ℤ$, $ℚ$, $ℝ$.
+- Notation $ℝ^*$
+- Opérations sur les tuples (concaténation, soustraction, multiplication scalaire).
 
 ## Exercices
 
@@ -44,3 +52,22 @@ Fait :
 2. $\{x ∈ A \vert x > 0\}$
 3. $\{3α \vert α \in A\}$
 4. $\{2x \vert x ∈ ℕ\} ∩ \{x ∈ ℕ \vert x ≤ 5\}$
+
+### Opérations sur les intervalles
+
+Soit des réels $a$, $b$, $c$, $d$, $e$ tels que
+
+```{math}
+a ⩽ e ⩽ b ⩽ c ⩽ d
+```
+
+Simplifier si c'est possible :
+
+1. $[-2, 3] ∩ [1, 2]$
+2. $[13, 27] ∖ [15, 30]$
+3. $[a, b] ∩ [e, c]$
+4. $[a, b] ∖ [e, c]$
+5. $[a, b] ∪ [e, c]$
+6. $[a, b] ∪ [c, d]$
+7. $[b, c] ∖ [c, d]$
+
