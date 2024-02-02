@@ -20,8 +20,8 @@ Fonctions
 }
 ```
 
+- Expressions, variables, constantes et paramètres.
 - Application, fonction, ensemble de départ (domaine) et d'arrivée (codomaine), image, antécédent.
-- Définition d'une fonction par une formule.
 - Notion de graphe et représentation graphique.
 - Image directe, image réciproque.
 - Injectivité, bijectivité, surjectivité.

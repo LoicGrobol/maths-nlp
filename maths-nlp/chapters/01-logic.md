@@ -198,7 +198,7 @@ $P_4$ n'est donc ni une contradiction, ni une tautologie.
 Démontrer la deuxième loi de De Morgan de deux façons différentes.
 
 ::::{admonition} Solutions
-<!-- :class: dropdown -->
+:class: dropdown
 
 Version 1: tables de vérité
 
