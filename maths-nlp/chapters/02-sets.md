@@ -111,6 +111,6 @@ Simplifier si c'est possible :
 4. $[a, e[$
 5. $[a, c]$
 6. $[a, b] ∪ [c, d]$
-7. $∅$
+7. $[b, c[$
 
 :::

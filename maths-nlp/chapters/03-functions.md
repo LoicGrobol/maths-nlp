@@ -21,12 +21,12 @@ Fonctions
 ```
 
 - Expressions, variables, constantes et paramètres.
-- Application, fonction, ensemble de départ (domaine) et d'arrivée (codomaine), image, antécédent.
+- Fonction, ensemble de départ (domaine) et d'arrivée (codomaine), image, antécédent.
 - Notion de graphe et représentation graphique.
-- Image directe, image réciproque.
+- Composée.
 - Injectivité, bijectivité, surjectivité.
+- Cardinal.
 - Fonction inverse.
-- Restrictions d'une fonction.
 - Fonction indicatrice d'un ensemble.
 
 ## Exercices
@@ -58,4 +58,4 @@ Soit $f$, la fonction
 2. $4$ a-t-il des antécédents par $f$ ? Lesquels ? Même question pour $-4$ et pour $2$.
 3. $f$ est-elle injective ? Surjective ? Bijective ?
 4. Que valent $f(\{1, 5, 6\})$, $f^{-1}(\{2, 7, 3, 1\})$, $f(\{0\})$ et $f^{-1}(\{0\})$ ?
-5. $f$ est-elle inversible ? Si oui donner son inverse. Sinon, a-t-elle une restriction bijective ?
+5. $f$ est-elle inversible ? Si oui donner son inverse.
