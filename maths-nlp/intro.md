@@ -19,14 +19,9 @@ Mathématiques pour le TAL
 
 - Prendre rendez-vous pour des *office hours* en visio :
   [Calendly](https://calendly.com/lgrobol/remote-office-hour)
-
-## Séances
-
-Les sources des supports sont sur [github](https://github.com/loicgrobol/maths-nlp). Pour l'instant,
-vous trouverez essentiellement des exercices et des liens sur ces pages. Elles devraient s'étoffer
-avec le temps.
-
-### 2024-01-19 — Logique et ensembles
+- Les sources des supports sont sur [github](https://github.com/loicgrobol/maths-nlp). Pour
+  l'instant, vous trouverez essentiellement des exercices et des liens sur ces pages. Elles
+  devraient s'étoffer avec le temps.
 
 ## Licence
 
