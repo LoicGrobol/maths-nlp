@@ -3,14 +3,10 @@
 Équations
 =========
 
-- Expressions, variables, constantes et paramètres.
-- Fonction, ensemble de départ (domaine) et d'arrivée (codomaine), image, antécédent.
-- Notion de graphe et représentation graphique.
-- Composée.
-- Injectivité, bijectivité, surjectivité.
-- Cardinal.
-- Fonction inverse.
-- Fonction indicatrice d'un ensemble.
+- Équations linéaires à une inconnue
+- Systèmes d'équations linéaires
+- Substitution
+- Algorithme de Gauß-Jordan (sur des exemples)
 
 ## Exercices
 
