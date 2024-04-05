@@ -9,3 +9,4 @@ chapters:
   - file: chapters/03-functions.md
   - file: chapters/04-equations.md
   - file: chapters/05-matrices.md
+  - file: chapters/x1-equivalence.md

@@ -15,12 +15,16 @@ from livereload import Server, shell
     type=click.Path(writable=True, file_okay=False, path_type=pathlib.Path),
 )
 def serve(book_path: pathlib.Path, path_output: pathlib.Path):
-    command = shell(
-        ["jupyter-book", "build", str(book_path), "--path-output", str(path_output)]
-    )
-    command()
+    cmd_args = [
+        "jupyter-book",
+        "build",
+        str(book_path),
+        "--path-output",
+        str(path_output),
+    ]
+    shell([*cmd_args, "-all"])()
     server = Server()
-    server.watch(book_path, command)
+    server.watch(book_path, shell(cmd_args))
     server.serve(root=path_output / "_build/html")
 
 
