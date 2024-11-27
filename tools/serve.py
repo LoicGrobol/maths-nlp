@@ -22,7 +22,7 @@ def serve(book_path: pathlib.Path, path_output: pathlib.Path):
         "--path-output",
         str(path_output),
     ]
-    shell([*cmd_args, "-all"])()
+    shell([*cmd_args, "--all"])()
     server = Server()
     server.watch(book_path, shell(cmd_args))
     server.serve(root=path_output / "_build/html")

@@ -143,11 +143,11 @@ fonctions $u$ et $u_M$ ?
 On dit alors que $M$ est la *matrice de $u$ entre les bases canoniques de $ℝ^n$ et $ℝ^m$*, ce que
 l'on note (entre autres) $M=\mathcal{Mat}_{ℝ^m←ℝ^n}(u)$.
 
-Finalement : *la multiplication par une matrice est une opération linéaire, et réciproquement, tout
-application linéaire peur s'écrire comme le produit par une matrice.
+Finalement : *la multiplication par une matrice est une opération linéaire, et réciproquement, toute
+application linéaire peur s'écrire comme le produit par une matrice.*
 
 ## 4. Une dernière propriété
 
-Pour les avides de savoir : soit $u∈𝓛(E,F)$ et $v∈(F,G)$, montrer que
+Pour les avides de savoir : soit $u∈𝓛(E,F)$ et $v∈𝓛(F,G)$, montrer que
 
 $$\mathcal{Mat}_{G←E}(v∘u)=\mathcal{Mat}_{G←F}(v)×\mathcal{Mat}_{F←E}(u)$$

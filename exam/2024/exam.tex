@@ -1,0 +1,431 @@
+% LTeX: language=fr
+% Copyright © 2014, Loïc Grobol <loic.grobol@gmail.com>
+%
+% Permission is granted to Do What The Fuck You Want To
+% with this document.
+%
+% See the WTF Public License, Version 2 as published by Sam Hocevar
+% at http://wtfpl.net if you need more details.
+
+\RequirePackage{xparse}
+% Settings
+\newcommand\myname{Loïc Grobol}
+\newcommand\mylab{}
+\newcommand\pdftitle{Mathématiques pour le TAL : partiel}
+\newcommand\mymail{loic.grobol@gmail.com}
+\newcommand\titlepagetitle{\pdftitle}
+\newcommand\titlepagesubtitle{}
+\newcommand\docdate{2024-04-12}  % chktex 8
+\newcommand\conference{M1 Plurital}
+
+%%%% Type de document %%%%
+\documentclass[a4paper, 11pt]{exam}
+\pagestyle{headandfoot}
+
+\usepackage{parskip}
+%
+
+
+%%%% Packages %%%%%
+\usepackage{fontspec}
+	\directlua{
+		luaotfload.add_fallback(
+			"myfallback",
+			{
+				"NotoColorEmoji:mode=harf;",
+				"NotoSans:mode=harf;",
+				"DejaVuSans:mode=harf;",
+			}
+		)
+	}
+	\setmainfont[
+		UprightFont={* Regular},
+		ItalicFont={* Italic},
+		BoldFont={* SemiBold},
+		BoldItalicFont={* SemiBold Italic},
+		RawFeature={fallback=myfallback;multiscript=auto;},
+	]{Libertinus Serif}
+	\setsansfont[
+		RawFeature={fallback=myfallback;multiscript=auto;}
+	]{Libertinus Sans}
+	\setmonofont[
+		Scale=MatchLowercase,
+		RawFeature={fallback=myfallback;multiscript=auto;},
+	]{Fira Mono}
+
+\usepackage{polyglossia}
+    \setmainlanguage{french}
+	\setotherlanguage[variant=british]{english}
+
+\usepackage[notbib]{tocbibind}
+\usepackage{emptypage}
+
+\usepackage{amsfonts,amssymb}
+\usepackage{amsmath,amsthm}
+\usepackage{mathtools}	% AMS Maths service pack
+	\newtagform{brackets}{[}{]}	% Pour des lignes d'équation numérotées entre crochets
+	\mathtoolsset{showonlyrefs, showmanualtags, mathic}	% affiche les tags manuels (\tag et \tag*) et corrige le kerning des maths inline dans un bloc italique voir la doc de mathtools
+	\usetagform{brackets}	% Utilise le style de tags défini plus haut
+\usepackage{lualatex-math}
+
+\usepackage[
+	math-style=french,
+	warnings-off={
+		mathtools-colon,
+		mathtools-overbracket,
+	},
+]{unicode-math}
+	\setmathfont{Libertinus Math}
+
+\usepackage{newunicodechar}
+	\newunicodechar{√}{\sqrt}
+
+\usepackage{mleftright}
+\usepackage{interval}
+\usepackage[d]{esvect}
+
+\usepackage{microtype}
+\usepackage[punct-after]{fnpct}  % Better display of footnote next to punctuation
+
+\usepackage[refpage, intoc, notocbasic]{nomencl}
+	\makenomenclature
+
+
+\usepackage{tabularx}
+\usepackage{booktabs}
+\usepackage{siunitx}
+	\sisetup{
+		detect-all,
+		group-separator=\text{\,},
+	}
+	\DeclareSIUnit{\quantity}{\relax}
+	\DeclareSIUnit{\words}{mots}
+	\DeclareSIUnit{\sentences}{phrases}
+	% Needed for italics and bold numbers in siunitx S-aligned columns
+	\robustify\itshape
+	\robustify\bfseries
+
+\usepackage{multicol}
+\usepackage{ccicons}
+\usepackage{bookmark}
+\usepackage{caption}
+	\captionsetup{skip=1ex, labelformat=empty}
+\usepackage{lua-ul}
+
+\usepackage{pseudo}
+	\pseudodefinestyle{fullwidth}{
+		begin-tabular=\tabularx{\linewidth}{@{}
+			r
+			% Labels
+			>{\pseudosetup}
+			% Indent, font, ...
+			X
+			% Code (flexible)
+			>{\leavevmode\small\color{black!60}}
+			% Comment styling
+			p{0.45\linewidth}
+			% Comments (fixed)
+			@{}
+		},
+		end-tabular = \endtabularx,
+		setup-append = \pseudoeq
+	}
+
+% \usepackage[backgroundcolor=white, bordercolor=orange]{todonotes}
+%     \NewDocumentCommand\addlink{ O{} m }{\todo[color=green!40, #1]{#2}}
+
+% \usepackage{tikz}
+% 	% Colour palette from [Paul Tol's technical note](https://personal.sron.nl/~pault/data/colourschemes.pdf) v3.1
+% 	% Bright scheme
+% 	\definecolor{sronbrightblue}{RGB}{68, 119, 170}
+% 	\definecolor{sronbrightcyan}{RGB}{102, 204, 238}
+% 	\definecolor{sronbrightgreen}{RGB}{34, 136, 51}
+% 	\definecolor{sronbrightyellow}{RGB}{204, 187, 68}
+% 	\definecolor{sronbrightred}{RGB}{238, 102, 119}
+% 	\definecolor{sronbrightpurple}{RGB}{170, 51, 119}
+% 	\definecolor{sronbrightgrey}{RGB}{187, 187, 187}
+
+% 	\definecolor{sronmutedindigo}{RGB}{51,34,136}
+
+% 	% And my favourite purple
+% 	\definecolor{myfavouritepurple}{RGB}{113, 10, 186}
+
+% 	\NewDocumentCommand{\textnode}{O{}mm}{\tikz[remember picture, baseline=(#2.base), inner sep=0pt]{\node[#1] (#2) {#3};}}
+% 	\NewDocumentCommand{\mathnode}{O{}mm}{\tikz[remember picture, baseline=(#2.base), inner sep=0pt]{\node[#1] (#2) {\(\displaystyle #3\)};}}
+% 	% Global style
+% 	\tikzset{
+% 		>=stealth,
+% 	}
+% 	% Beamer utilities, for easy figure import
+% 	\tikzset{
+% 		visible on/.style={},
+% 		accented/.style={text=accent, thick},
+% 	}
+
+% 	% Misc utilities
+% 	\tikzset{
+% 		true scale/.style={scale=#1, every node/.style={transform shape}},
+% 	}
+
+% 	\usetikzlibrary{tikzmark}
+% 	\usetikzlibrary{matrix, chains}
+% 	\usetikzlibrary{shapes, shapes.geometric}
+% 	\usetikzlibrary{decorations.pathreplacing}
+% 	\usetikzlibrary{positioning, calc, intersections}
+% 	\usetikzlibrary{fit}
+
+% 	% TikZ externalisation
+% 	\usetikzlibrary{external}
+% 	% Create the `tikzpics/` folder if it does not exist
+% 	\usepackage{shellesc}
+% 	\ShellEscape{mkdir _tikzpics}
+% 	% Only externalise pictures on demand
+% 	\tikzset{
+% 		external/export=false,
+% 		external/prefix=_tikzpics/,
+% 	}
+% 	\tikzexternalize
+
+% \usepackage{forest}
+% 	\useforestlibrary{linguistics}
+
+% \usepackage{minted}
+% 	\usemintedstyle{lovelace}
+% 	\setminted{autogobble, tabsize=4}
+
+\usepackage[
+	english=american,
+	french=guillemets,
+	autostyle=true,
+]{csquotes}
+	\renewcommand{\mkbegdispquote}[2]{\itshape\let\emph\textbf}
+	\renewcommand{\mkenddispquote}[2]{%
+		\hfill\mbox{\upshape#1#2}%
+	}
+	% Like `\foreignquote` but use the outside language's quotes not the inside's
+	\NewDocumentCommand\quoteforeign{m m}{\enquote{\textlang{#1}{#2}}}
+	% \renewcommand{\mkbegdispquote}[2]{%
+	%     \tikz[remember picture, overlay]{\fill[lightgray] (pic cs:quotestart) rectangle (pic cs:quoteend);}%
+	%     \tikzmark{quotestart}%
+	% }
+	% \renewcommand{\mkenddispquote}[2]{%
+	%     #1#2%
+	%     \hfill\tikzmark{quoteend}%
+	% }
+
+
+% Annoying package loading order, so far we have:
+% digraph packages {hyperref -> biblatex; hyperref -> hyperxmp; cleveref -> hyperref; fixme -> hyperref; bookmark -> hyperref}
+
+% \usepackage[
+% 	style=authoryear-comp,
+% 	mergedate=basic,
+% 	dashed=false,
+% 	backend=biber,
+% 	isbn=false,
+% 	maxcitenames=2,
+% 	uniquelist=false,
+% 	maxbibnames=8,
+% 	backref=true,
+% ]{biblatex}
+% 	% No small caps in french bib
+% 	\DefineBibliographyExtras{french}{\restorecommand\mkbibnamefamily}
+	% \addbibresource{biblio.bib}
+
+\usepackage{hyperxmp}  % Load before hyperref
+% \usepackage[a-3u]{pdfx}
+% \usepackage[unicode]{hyperref}  % Apparently already loaded, no idea by whom. I hate you, latex
+\hypersetup{
+	pdftitle={\pdftitle},
+	pdfauthor={\myname},
+	pdfcontactemail={\mymail},
+	colorlinks=true,
+	breaklinks=true,
+	hypertexnames=true,
+	pdfdisplaydoctitle,
+	pdflang={fr},
+	keeppdfinfo,
+}
+% \usepackage{bookmark}  % Load after hyperref 
+% \usepackage{footnotebackref}
+
+% \usepackage[status=draft]{fixme} % Load after hyperref
+% \usepackage[status=final]{fixme} % Load after hyperref
+	% \fxsetup{theme=color}
+\usepackage{cleveref}  % Load after hyperref
+
+
+%%%% License %%%%
+\usepackage[type={CC}, modifier={by}, version={4.0}]{doclicense}
+
+%%% Custom commands
+% Maths
+\NewDocumentCommand\transpose{m}{\prescript{\mathrm{t}}{}{#1}}
+
+\DeclareMathOperator\Img{Im}
+\DeclareMathOperator\Ker{Ker}
+\DeclareMathOperator\FFNN{FFNN}
+\DeclareMathOperator\LSTM{LSTM}
+\NewDocumentCommand\bLSTM{}{\overleftarrow{\LSTM}}
+\NewDocumentCommand\fLSTM{}{\overrightarrow{\LSTM}}
+\DeclareMathOperator\GRU{GRU}
+\NewDocumentCommand\bGRU{}{\overleftarrow{\GRU}}
+\NewDocumentCommand\fGRU{}{\overrightarrow{\GRU}}
+\DeclareMathOperator*\argmax{arg\,max}
+\DeclareMathOperator*\softmax{softmax}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\brackets{[}{]}
+\DeclarePairedDelimiterX\compset[2]{\lbrace}{\rbrace}{#1\,\delimsize|\,\mathopen{}#2}
+\DeclarePairedDelimiterX\innprod[2]{\langle}{\rangle}{#1\,\delimsize|\,\mathopen{}#2}
+\DeclarePairedDelimiter\discseg{⟦}{⟧}
+\DeclarePairedDelimiter\ceil{⌈}{⌉}
+\DeclarePairedDelimiter\floor{⌊}{⌋}
+\DeclarePairedDelimiter\round{⌊}{⌉}
+
+\NewDocumentCommand\fonct{ m m m m m }{
+	\left|\begin{array}{rrl}
+		#1 :  & #2 & ⟶ #3 \\
+				& #4 & ⟼ #1\mleft(#4\mright) = #5
+	\end{array}\right.
+}
+
+% Easy column vectors \vcord{a,b,c} ou \vcord[;]{a;b;c}
+% Here be black magic
+\ExplSyntaxOn
+	\NewDocumentCommand{\vcord}{O{,}m}{\vector_main:nnnn{p}{\\}{#1}{#2}}
+	\NewDocumentCommand{\tvcord}{O{,}m}{\vector_main:nnnn{psmall}{\\}{#1}{#2}}
+	\seq_new:N\l__vector_arg_seq
+	\cs_new_protected:Npn\vector_main:nnnn #1 #2 #3 #4{
+		\seq_set_split:Nnn\l__vector_arg_seq{#3}{#4}
+		\begin{#1matrix}
+			\seq_use:Nnnn\l__vector_arg_seq{#2}{#2}{#2}
+		\end{#1matrix}
+	}
+
+	\NewDocumentCommand{\concat}{sO{,}m}{
+		\IfBooleanTF{#1}{
+			\ensuremath{\brackets*{\concat_main:nnn{,~}{#2}{#3}}}
+		}{
+			\ensuremath{\brackets{\concat_main:nnn{,~}{#2}{#3}}}
+		}
+	}
+	\seq_new:N\l__concat_arg_seq
+	\cs_new_protected:Npn\concat_main:nnn #1 #2 #3 {
+		\seq_set_split:Nnn\l__concat_arg_seq{#2}{#3}
+		\seq_use:Nnnn\l__concat_arg_seq{#1}{#1}{#1}
+	}
+\ExplSyntaxOff
+	
+	
+\let\card\abs
+
+% Misc
+% from https://tex.stackexchange.com/a/27099/8547
+\makeatletter
+\NewDocumentCommand\centerfloat{}{%
+	\parindent \z@%
+	\leftskip \z@ \@plus 1fil \@minus \textwidth%
+	\rightskip\leftskip%
+	\parfillskip \z@skip%
+}
+\makeatother
+
+\NewDocumentCommand\definition{ o m }{\emph{#2}}
+
+\title{\titlepagetitle}
+\author{\myname}
+\date{\docdate}
+
+%%%% Commandes spécifiques au document %%%%
+
+\begin{document}
+\pdfbookmark[1]{Cover}{cover}
+\maketitle
+
+\section{Applications directes}
+
+\begin{questions}
+	\question Développer et réduire la formule logique \((\operatorname{non}\,(A \operatorname{ou}\,B))\operatorname{ou}\,\operatorname{FAUX}\).
+	\question Simplifier \(\{0, 1, 2, 3, 6\} ∩ \{0, 2, 4, 6, 8\}\)
+	\question Résoudre le système d'équations suivant en utilisant l'algorithme de Gauß-Jordan
+		\begin{equation}
+			\begin{cases}
+				x + y + z = 1\\
+				2x - y + z = 2\\
+				-x + y + z = 0\\
+			\end{cases}
+		\end{equation}
+\end{questions}
+
+\section{Droites vectorielles}
+On dit qu'un ensemble \(E⊂ℝ²\) est une \emph{droite vectorielle de \(ℝ²\)} s'il existe un vecteur \(u∈ℝ²\) différent de \(0\) tel que
+
+\begin{equation}
+    E = \compset{λ⋅u}{λ∈ℝ}
+\end{equation}
+
+\begin{questions}
+    \question Montrer que l'ensemble \(\compset{(x,y)∈ℝ²}{y = 2x}\) est une droite vectorielle. Dessiner cet ensemble dans un repère du plan et faire une conjecture sur la nature géométrique des droites vectorielles.
+    \question Montrer que pour tout \(a∈ℝ\), l'ensemble \(\compset{(x, ax)∈ℝ²}{x∈ℝ}\) est une droite vectorielle.
+    \question Y a-t-il des droites vectorielles qui ne sont pas de cette forme ?
+    \question Soit \(D\) et \(D'\), deux droites vectorielles telles que \(D≠D'\), montrer que \(D∩D'=\{(0,0)\}\).
+\end{questions}
+
+
+\section{Projection}
+Soit une matrice \(M∈\mathcal{M}_{2,2}(ℝ)\)
+
+\begin{itemize}
+    \item On appelle \emph{image} de \(M\) l'ensemble \(\Img(M)=\compset{M×X}{X∈ℝ²}\). Autrement dit, un vecteur \(Y\) appartient à l'image \(M\) si et seulement s'il existe un vecteur \(X\) tel que \(Y=MX\).
+    \item On appelle \emph{noyau} de \(M\) l'ensemble \(\Ker(M)=\compset{X∈ℝ²}{M×X=0}\). 
+\end{itemize}
+
+
+Dans la suite, on considère la matrice \(M\) suivante
+
+\begin{equation}
+    M =
+        \begin{pmatrix}
+            \frac{1}{2} & \frac{1}{2}\\[.5em]
+            \frac{1}{2} & \frac{1}{2}
+        \end{pmatrix}
+\end{equation}
+
+\begin{questions}
+    \question\label{q|points} Calculer \(M×X\) pour chaque vecteur \(X\) dans l'ensemble \(\{(0, 0), (1, 0), (0, 1), (1, 1), (1, 3), (1, 2)\}\).
+    \question Placer (sous forme de points) les vecteurs trouvés dans la question précédente dans un repère du plan. Faire une hypothèse sur la nature de \(\Img(M)\).
+    \question Résoudre le système d'équations suivant et représenter l'ensemble de ses solutions sur le repère précédent.
+        \begin{equation}
+            \begin{cases}
+                \frac{1}{2}x + \frac{1}{2}y = 0
+                \frac{1}{2}x + \frac{1}{2}y = 0
+            \end{cases}
+        \end{equation}
+    \question Déterminer les \(X∈ℝ²\) tels que \(MX=0\). En déduire que \(\Ker(M)\) est une droite vectorielle.
+    \question Soit \(X=(x,y)∈\Img(M)\). Que peut-on dire de \(x\) et \(y\) ? En déduire que \(\Img(M)\) est une droite vectorielle.
+    \question Sur le repère précédent, tracer les droites passant par les points \(X\) et \(MX\), pour les \(X\) de la question \ref{q|points}. Faire une conjecture sur ces droites et le noyau de \(M\).
+	\question Montrer que \(M²=M\).
+\end{questions}
+
+\section{Projecteur}
+
+On appelle \emph{matrice de projection} toute matrice \(M\) telle que \(M²=M\). Noter que \(M\) est alors nécessairement une matrice carrée, et que la matrice nulle et la matrice identité sont toujours des matrices de projection.
+
+Dans la suite on considère une matrice de projection \(M\) non-nulle et non-identité, et on notera \(E\) l'ensemble des vecteurs \(X\) tels que \(MX\) soit défini.
+
+\begin{questions}
+	\question Soit \(X∈E\), calculer \(M(X-MX)\). À quel ensemble appartient donc \(X-MX\) ?
+	\question\label{q|sum} Soit \(X∈E\), à quel ensemble appartient le vecteur \(MX\) ? En déduire que pour tout \(X∈E\), il existe \(Y∈\Ker(M)\) et \(Z∈\Img(M)\) tels que \(X=Y+Z\).
+	
+		On dit que les ensembles \(\Ker(M)\) et \(\Img(M)\) \emph{engendrent} \(E\) et on note \(\Ker(M)+\Img(M)=E\).
+
+	\question Montrer que \(\Ker(M)∩\Img(M)=\{0\}\).
+	
+		On dit que les ensembles \(\Ker(M)\) et \(\Img(M)\) sont \emph{en somme directe}, et puisque d'après la question \ref{q|sum}, ils engendrent \(E\), on dit qu'ils sont \emph{supplémentaires dans \(E\)} et on note \(\Ker(M)⊕\Img(M)=E\).
+
+	\question Soit $(Y, Y')∈\Ker(M)²$ et $(Z, Z')∈\Img(M)²$. Montrer que $Y+Y'∈\Ker(M)$ et $Z+Z'∈\Img(M)$. En déduire que si $Y+Z=Y'+Z'$, alors $Y=Y'$ et $Z=Z'$.
+	\question D'après les questions précédentes, si $X∈E$, il existe un unique couple $(Y, Z)∈\Ker(M)×\Img(M)$ tel que $X=Y+Z$. Que vaut alors $MX$ ?
+\end{questions}
+
+\end{document}
