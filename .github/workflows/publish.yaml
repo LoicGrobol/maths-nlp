@@ -48,6 +48,7 @@ jobs:
       
       - name: Build book 📚
         run: |
+          source .venv/bin/activate
           jupyter-book build "maths-nlp" --path-output "."
 
       - name: Setup Pages
