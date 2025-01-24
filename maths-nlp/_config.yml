@@ -42,6 +42,7 @@ sphinx:
   html_show_copyright: false
   extra_extensions:
     - sphinx_proof
+    - jupyterlite_sphinx
   config:
     bibtex_reference_style: author_year
     html_favicon: favicon.svg

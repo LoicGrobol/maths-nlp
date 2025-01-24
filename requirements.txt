@@ -1,8 +1,12 @@
 click
 jupyter-book
+jupyterlite-pyodide-kernel
+jupyter-server
+jupyterlite-sphinx
 livereload
 matplotlib
 numpy
+pathspec
 sphinx-jupyterbook-latex
 sphinx-proof
 sphinx-serve
