@@ -3,23 +3,21 @@
 Logique
 =======
 
-- Logique formelle comme modèle simplifié de la logique usuelle..
+- Logique formelle comme modèle simplifié de la logique usuelle.
 - Symboles $\operatorname{VRAI}$ et $\operatorname{FAUX}$.
+- Tiers exclu.
 - Opérateurs logiques $\operatorname{et}$, $\operatorname{ou}$, $\operatorname{non}$.
 - Formules logiques et prédicats.
 - Calcul booléen et tables de vérités.
 - Tautologie, contradiction.
 - Équivalence entre prédicats.
-- Commutativité, associativité, idempotence de  $\operatorname{non}$.
+- Commutativité, associativité, idempotence de $\operatorname{non}$.
+- Structure d'une preuve.
 - Lois de De Morgan.
 - Opérateurs $\operatorname{xor}$, $\operatorname{nand}$, $\operatorname{nor}$, $⇒$,.
 	$\operatorname{⇔}$.
 - Universalité de $\operatorname{nand}$.
 - Notations $¬$, $∧$, $∨$, $⊗$.
-
-À faire :
-
-- Tiers exclu.
 
 ## Exercices
 
@@ -42,7 +40,7 @@ Développer et simplifier au maximum les formules logiques suivantes
 1\.
 
 $\operatorname{VRAI}\,\operatorname{et}\,\operatorname{VRAI} = \operatorname{VRAI}$ par définition
-	 de $\operatorname{et}$
+de $\operatorname{et}$
 
 2\. 
 
@@ -103,7 +101,7 @@ variables. Attention : un prédicat peut n'être ni l'un ni l'autre.
 
 Pour chacune des expressions suivantes, déterminer s'il s'agit d'une tautologie, d'une
 contradiction, ou ni l'une ni l'autre. Utiliser une table de vérité et/ou des simplifications en
-utilisant les propriétés des opérateurs logiques
+utilisant les propriétés des opérateurs logiques.
 
 1. $P_1(A, B) = (A \operatorname{ou}\,B) \operatorname{ou}\,(\operatorname{non}\,A)$
 2. $P_2(A, B) = ((\operatorname{non}\,A) \operatorname{ou}\,B)
