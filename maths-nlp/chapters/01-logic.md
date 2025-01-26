@@ -1,14 +1,13 @@
 ---
-jupyter:
-  jupytext:
-    text_representation:
-      extension: .md
-      format_name: pandoc
-      format_version: 3.1.12.1
-      jupytext_version: 1.16.6
-  kernelspec:
-  nbformat: 4
-  nbformat_minor: 5
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.16.6
+kernelspec:
+  display_name: ''
+  name: ''
 ---
 
 <!-- LTeX: language=fr -->
