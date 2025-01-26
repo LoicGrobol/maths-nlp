@@ -17,10 +17,9 @@ Logique
 =======
 
 :::{notebooklite} 01-logic.md
+:new_tab: "True"
 :::
 
-:new_tab: True
-:new_tab_button_text: My custom NotebookLite button text
 - Logique formelle comme modèle simplifié de la logique usuelle.
 - Symboles $\operatorname{VRAI}$ et $\operatorname{FAUX}$.
 - Tiers exclu.
