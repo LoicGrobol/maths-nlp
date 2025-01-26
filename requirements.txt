@@ -1,8 +1,10 @@
 click
+jupyterlab
 jupyter-book
 jupyterlite-pyodide-kernel
 jupyter-server
 jupyterlite-sphinx
+jupytext
 livereload
 matplotlib
 numpy

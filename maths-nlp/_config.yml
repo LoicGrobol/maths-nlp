@@ -48,6 +48,8 @@ sphinx:
     html_favicon: favicon.svg
     html_theme_options:
       repository_provider: custom
+    jupyterlite_contents:
+      - "chapters"
     language: fr
     latex_additional_files:
       - "latex_extra.sty"

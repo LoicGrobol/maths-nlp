@@ -1,8 +1,26 @@
+---
+jupyter:
+  jupytext:
+    text_representation:
+      extension: .md
+      format_name: pandoc
+      format_version: 3.1.12.1
+      jupytext_version: 1.16.6
+  kernelspec:
+  nbformat: 4
+  nbformat_minor: 5
+---
+
 <!-- LTeX: language=fr -->
 
 Logique
 =======
 
+:::{notebooklite} 01-logic.md
+:::
+
+:new_tab: True
+:new_tab_button_text: My custom NotebookLite button text
 - Logique formelle comme modèle simplifié de la logique usuelle.
 - Symboles $\operatorname{VRAI}$ et $\operatorname{FAUX}$.
 - Tiers exclu.
