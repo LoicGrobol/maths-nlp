@@ -26,10 +26,12 @@ repository:
   branch: main # Which branch of the repository should be used when creating links (optional)
 
 # Add GitHub buttons to your book
-# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+# See https://jupyterbook.org/customize/config.html#add-a-linku-to-your-repository
 html:
+  use_edit_page_button: true
   use_issues_button: true
   use_repository_button: true
+  use_source_button: true
 
 parse:
   myst-enable-extensions:
@@ -39,6 +41,7 @@ parse:
     - substitution
 
 sphinx:
+  recursive_update: true
   html_show_copyright: false
   extra_extensions:
     - sphinx_proof
@@ -46,8 +49,6 @@ sphinx:
   config:
     bibtex_reference_style: author_year
     html_favicon: favicon.svg
-    html_theme_options:
-      repository_provider: custom
     jupyterlite_contents:
       - "chapters"
     language: fr
