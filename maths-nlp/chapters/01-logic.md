@@ -15,10 +15,6 @@ kernelspec:
 Logique
 =======
 
-:::{notebooklite} 01-logic.md
-:new_tab: "True"
-:::
-
 - Logique formelle comme modèle simplifié de la logique usuelle.
 - Symboles $\operatorname{VRAI}$ et $\operatorname{FAUX}$.
 - Tiers exclu.
@@ -251,3 +247,11 @@ $$
 $$
 
 ::::
+
++++ {"tags": ["jupyterlite_sphinx_strip"]}
+
+:::{notebooklite} 01-logic.md
+:new_tab: "True"
+:::
+
++++

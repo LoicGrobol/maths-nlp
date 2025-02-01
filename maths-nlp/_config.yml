@@ -51,6 +51,7 @@ sphinx:
     html_favicon: favicon.svg
     jupyterlite_contents:
       - "chapters"
+    strip_tagged_cells: true  # sphinx-jupyterlite option
     language: fr
     latex_additional_files:
       - "latex_extra.sty"

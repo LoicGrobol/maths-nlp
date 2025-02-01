@@ -1,4 +1,3 @@
-import glob
 import pathlib
 import click
 from livereload import Server, shell

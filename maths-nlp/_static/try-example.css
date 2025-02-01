@@ -11,6 +11,10 @@
     font-family: vibur;
     font-size: larger;
     box-shadow: 0 2px 5px rgba(108, 108, 108, 0.2);
+    /* Temp ugly fix for position */
+    position: fixed;
+    bottom:20px;
+    right: 20px;
 }
 
 .try_examples_button:hover {
