@@ -88,7 +88,7 @@ $$
 		&= A \operatorname{ou}\,((\operatorname{non} B) \operatorname{ou} B)
 			& \text{par associativité de $\operatorname{ou}$}\\
 		&= A\operatorname{ou}\,\operatorname{VRAI}\\
-		&= A
+		&= \operatorname{VRAI}
 \end{align}
 $$
 
