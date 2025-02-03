@@ -1,3 +1,15 @@
+---
+jupytext:
+  text_representation:
+    extension: .md
+    format_name: myst
+    format_version: 0.13
+    jupytext_version: 1.16.6
+kernelspec:
+  display_name: ''
+  name: ''
+---
+
 <!-- LTeX: language=fr -->
 
 Logique
@@ -235,3 +247,11 @@ $$
 $$
 
 ::::
+
++++ {"tags": ["jupyterlite_sphinx_strip"]}
+
+:::{notebooklite} 01-logic.md
+:new_tab: "True"
+:::
+
++++

@@ -1,4 +1,3 @@
-import glob
 import pathlib
 import click
 from livereload import Server, shell
@@ -32,6 +31,7 @@ def serve(book_path: pathlib.Path, path_output: pathlib.Path):
         str(book_path),
         "--path-output",
         str(path_output),
+        "--verbose",
     ]
     shell([*cmd_args, "--all"])()
     server = Server()
