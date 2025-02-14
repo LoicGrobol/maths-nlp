@@ -54,13 +54,14 @@ et $C$ l'ensemble des langues vivantes, écrire en extension :
 1. $\{0, 1, 2, 3, 4\} ∩ \{0, 2, 4, 6, 8\} = \{0, 2, 4\}$
 2. $\{0, 1, 2, 3, 4\} ∪ \{0, 2, 4, 6, 8\} = \{0, 1, 2, 3, 4, 6, 8\}$
 3. $\{0, 1, 2, 3, 4\} ∖ \{0, 2, 4, 6, 8\} = \{1, 3\}$
-4. $\{a, b\} × \{c, a\} = \{(a,c), (a, a), (b, c), (b, a)\}$.
+4. $\{a, b\} × \{c, a\} = \{(a, c), (a, a), (b, c), (b, a)\}$.
 
 2\.
 
-1. $\{\text{Breton}\}$
+1. Les langues celtiques vivantes d'Europe continentale : $\{\text{Breton}\}$
 2. $\{\text{Gaulois}, \text{Celtibère}, \text{Lépontique}, \text{Gallaïque}, \text{Norique},
-   \text{Galate}\}$ (en l'état actuel des connaissances).
+   \text{Galate}\}$ (en l'état actuel des connaissances). Autrement dit les langues celtiques
+   non-vivantes d'Europe continentale.
 
 :::
 
@@ -74,7 +75,7 @@ et $C$ l'ensemble des langues vivantes, écrire en extension :
 4. $\{2x\,\vert\,x ∈ ℕ\} ∩ \{x ∈ ℕ\,\vert\,x ≤ 5\}$
 
 :::{admonition} Solutions
-:class: dropdown
+:class: dropdowna
 
 1. $A = \{0, 1, 2\}$
 2. $\{1, 2\}$
@@ -89,7 +90,7 @@ et $C$ l'ensemble des langues vivantes, écrire en extension :
 Soit des réels $a$, $b$, $c$, $d$, $e$ tels que
 
 $$
-a ⩽ e ⩽ b ⩽ c ⩽ d
+a < e ⩽ b < c ⩽ d
 $$
 
 Simplifier si c'est possible :
@@ -106,7 +107,7 @@ Simplifier si c'est possible :
 :class: dropdown
 
 1. $[1, 2]$
-2. $[15, 27]$
+2. $[13, 15[$
 3. $[e, b]$
 4. $[a, e[$
 5. $[a, c]$
