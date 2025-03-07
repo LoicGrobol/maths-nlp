@@ -10,6 +10,9 @@
 
 ## Exercices
 
+- [Systèmes de deux équations à deux inconnues](https://www.annales2maths.com/2nd-exercices-corriges-systemes-dequations/)
+- [Systèmes de trois équations à trois inconnues](https://greenemath.com/College_Algebra/116/Solving-Linear-Systems-in-Three-VariablesPracticeTest.html)
+
 ### Exerciseurs
 
 - [Equadorix](https://mathix.org/equadorix) : préciser l'opération à effectuer pour arriver à la
