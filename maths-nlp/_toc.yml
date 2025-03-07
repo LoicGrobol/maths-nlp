@@ -6,7 +6,7 @@ root: intro
 chapters:
   - file: chapters/01-logic.md
   - file: chapters/02-sets.md
-  - file: chapters/03-functions.md
-  - file: chapters/04-equations.md
+  - file: chapters/03-equations.md
+  - file: chapters/04-functions.md
   - file: chapters/05-matrices.md
   - file: chapters/x1-equivalence.md
