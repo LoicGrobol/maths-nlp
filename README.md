@@ -3,7 +3,6 @@ Mathématiques pour le TAL
 
 Contenus pour le cours « Mathématiques pour le TAL » du master Plurital 
 
-
 ## How do I build this
 
 (In a virtual env)

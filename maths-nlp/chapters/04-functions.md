@@ -23,11 +23,10 @@ Fonctions
 - Expressions, variables, constantes et paramètres.
 - Fonction, ensemble de départ (domaine) et d'arrivée (codomaine), image, antécédent.
 - Notion de graphe et représentation graphique.
-- Composée.
 - Injectivité, bijectivité, surjectivité.
-- Cardinal.
+- Opérations algébriques sur les fonctions.
+- Composée.
 - Fonction inverse.
-- Fonction indicatrice d'un ensemble.
 
 ## Exercices
 
@@ -43,8 +42,7 @@ Soit $s$, la fonction
 2. Quelle est l'image de $3$ par $s$ ?
 3. $2713$ a-t-elle des antécédents par $s$ ? Lesquels ?
 4. $s$ est-elle injective ? Surjective ? Bijective ?
-5. Que valent $s(\{1, 5, 6\})$, $s^{-1}(\{2, 7, 3, 1\})$, $s(\{0\})$ et $s^{-1}(\{0\})$ ?
-6. $s$ est-elle inversible ? Si oui donner son inverse.
+5. $s$ est-elle inversible ? Si oui donner son inverse.
 
 ### Carré
 
@@ -57,5 +55,4 @@ Soit $f$, la fonction
 1. Donner les images $0$, $-2$, $0.001$, $2^{2713}$ et $π$ par $f$
 2. $4$ a-t-il des antécédents par $f$ ? Lesquels ? Même question pour $-4$ et pour $2$.
 3. $f$ est-elle injective ? Surjective ? Bijective ?
-4. Que valent $f(\{1, 5, 6\})$, $f^{-1}(\{2, 7, 3, 1\})$, $f(\{0\})$ et $f^{-1}(\{0\})$ ?
-5. $f$ est-elle inversible ? Si oui donner son inverse.
+4. $f$ est-elle inversible ? Si oui donner son inverse.

@@ -134,7 +134,8 @@ $$
 
 **3.1.2** Que peut-on dire de la fonction $u_M$ définie comme précédemment ?
 
-**3.2** Soit $M∈\mathcal{Mat}_{n,m}(ℝ)$, à quoi correspond le vecteur $Me_1$ par rapport à $M$ ? Et $Me_i$ ?
+**3.2** Soit $M∈\mathcal{Mat}_{n,m}(ℝ)$, à quoi correspond le vecteur $Me_1$ par rapport à $M$ ? Et
+$Me_i$ ?
 
 **3.3** Soit $u∈𝓛(ℝ^n, ℝ^m)$, une application linéaire. Déterminer une matrice
 $M∈\mathcal{Mat}_{m,n}(ℝ)$ telle que pour tout $i$, $Me_i = u(e_i)$. Que peut-on alors dire des

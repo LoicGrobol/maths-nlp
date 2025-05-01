@@ -1,0 +1,439 @@
+% LTeX: language=fr
+% Copyright © 2014, Loïc Grobol <loic.grobol@gmail.com>
+%
+% Permission is granted to Do What The Fuck You Want To
+% with this document.
+%
+% See the WTF Public License, Version 2 as published by Sam Hocevar
+% at http://wtfpl.net if you need more details.
+
+\RequirePackage{xparse}
+% Settings
+\newcommand\myname{Loïc Grobol}
+\newcommand\mylab{}
+\newcommand\coursetitle{Mathématiques pour le TAL}
+\newcommand\examtitle{Partiel final}
+\newcommand\pdftitle{\coursetitle : \examtitle}
+\newcommand\mymail{lgrobol@parisnanterre.fr}
+\newcommand\titlepagetitle{\pdftitle}
+\newcommand\titlepagesubtitle{}
+\newcommand\docdate{2025-05-02}  % chktex 8
+\newcommand\conference{M1 Plurital}
+
+%%%% Type de document %%%%
+\documentclass[a4paper, 11pt]{exam}
+\pagestyle{headandfoot}
+
+%%%% Packages %%%%%
+% Lang
+\usepackage{polyglossia}
+    \setmainlanguage{french}
+	\setotherlanguage[variant=british]{english}
+
+% Document and typesetting
+\usepackage{fontspec}
+\directlua{
+	luaotfload.add_fallback(
+		"myfallback",
+		{
+			"NotoColorEmoji:mode=harf;",
+			"NotoSans:mode=harf;",
+			"DejaVuSans:mode=harf;",
+		}
+	)
+}
+\setmainfont[
+	UprightFont={* Regular},
+	ItalicFont={* Italic},
+	BoldFont={* SemiBold},
+	BoldItalicFont={* SemiBold Italic},
+	RawFeature={fallback=myfallback;multiscript=auto;},
+]{Libertinus Serif}
+\setsansfont[
+	RawFeature={fallback=myfallback;multiscript=auto;}
+	]{Libertinus Sans}
+\setmonofont[
+	Scale=MatchLowercase,
+	RawFeature={fallback=myfallback;multiscript=auto;},
+]{Fira Mono}
+					
+\usepackage{bookmark}
+\usepackage{caption}
+	\captionsetup{skip=1ex, labelformat=empty}
+\usepackage[type={CC}, modifier={by}, version={4.0}]{doclicense}
+\usepackage{emptypage}
+\usepackage[inline]{enumitem}
+% \usepackage  % Cool but messes with fleqn, activate if necessary{fnpct}  % Better display of footnote next to punctuation
+\usepackage{microtype}
+\usepackage{parskip}
+\usepackage{siunitx}
+\sisetup{
+	detect-all,
+	group-separator=\text{\,},
+}
+	\DeclareSIUnit{\quantity}{\relax}
+	\DeclareSIUnit{\words}{mots}
+	\DeclareSIUnit{\sentences}{phrases}
+	% Needed for italics and bold numbers in siunitx S-aligned columns
+	\robustify\itshape
+	\robustify\bfseries
+\usepackage{tabularray}
+
+% Math
+% Amsmath must be loaded before mathtools if it has options
+\usepackage[fleqn]{amsmath}
+% Mathtools should be loaded before unicode-math
+\usepackage{mathtools}
+	\newtagform{brackets}{[}{]}	% Pour des lignes d'équation numérotées entre crochets
+	\mathtoolsset{showonlyrefs, showmanualtags, mathic}	% affiche les tags manuels (\tag et \tag*) et corrige le kerning des maths inline dans un bloc italique voir la doc de mathtools
+	\usetagform{brackets}	% Utilise le style de tags défini plus haut
+
+\usepackage[
+	math-style=french,
+	warnings-off={
+		mathtools-colon,
+		mathtools-overbracket,
+	},
+]{unicode-math}
+	\setmathfont{Libertinus Math}
+
+\usepackage{amsthm}
+\usepackage[d]{esvect}
+\usepackage{interval}
+\usepackage{lualatex-math}
+\usepackage{mleftright}
+\usepackage{newunicodechar}
+	\newunicodechar{√}{\sqrt}
+
+% \usepackage[backgroundcolor=white, bordercolor=orange]{todonotes}
+%     \NewDocumentCommand\addlink{ O{} m }{\todo[color=green!40, #1]{#2}}
+
+% \usepackage{tikz}
+% 	% Colour palette from [Paul Tol's technical note](https://personal.sron.nl/~pault/data/colourschemes.pdf) v3.1
+% 	% Bright scheme
+% 	\definecolor{sronbrightblue}{RGB}{68, 119, 170}
+% 	\definecolor{sronbrightcyan}{RGB}{102, 204, 238}
+% 	\definecolor{sronbrightgreen}{RGB}{34, 136, 51}
+% 	\definecolor{sronbrightyellow}{RGB}{204, 187, 68}
+% 	\definecolor{sronbrightred}{RGB}{238, 102, 119}
+% 	\definecolor{sronbrightpurple}{RGB}{170, 51, 119}
+% 	\definecolor{sronbrightgrey}{RGB}{187, 187, 187}
+
+% 	\definecolor{sronmutedindigo}{RGB}{51,34,136}
+
+% 	% And my favourite purple
+% 	\definecolor{myfavouritepurple}{RGB}{113, 10, 186}
+
+% 	\NewDocumentCommand{\textnode}{O{}mm}{\tikz[remember picture, baseline=(#2.base), inner sep=0pt]{\node[#1] (#2) {#3};}}
+% 	\NewDocumentCommand{\mathnode}{O{}mm}{\tikz[remember picture, baseline=(#2.base), inner sep=0pt]{\node[#1] (#2) {\(\displaystyle #3\)};}}
+% 	% Global style
+% 	\tikzset{
+% 		>=stealth,
+% 	}
+% 	% Beamer utilities, for easy figure import
+% 	\tikzset{
+% 		visible on/.style={},
+% 		accented/.style={text=accent, thick},
+% 	}
+
+% 	% Misc utilities
+% 	\tikzset{
+% 		true scale/.style={scale=#1, every node/.style={transform shape}},
+% 	}
+
+% 	\usetikzlibrary{tikzmark}
+% 	\usetikzlibrary{matrix, chains}
+% 	\usetikzlibrary{shapes, shapes.geometric}
+% 	\usetikzlibrary{decorations.pathreplacing}
+% 	\usetikzlibrary{positioning, calc, intersections}
+% 	\usetikzlibrary{fit}
+
+% 	% TikZ externalisation
+% 	\usetikzlibrary{external}
+% 	% Create the `tikzpics/` folder if it does not exist
+% 	\usepackage{shellesc}
+% 	\ShellEscape{mkdir _tikzpics}
+% 	% Only externalise pictures on demand
+% 	\tikzset{
+% 		external/export=false,
+% 		external/prefix=_tikzpics/,
+% 	}
+% 	\tikzexternalize
+
+% \usepackage{forest}
+% 	\useforestlibrary{linguistics}
+
+% \usepackage{minted}
+% 	\usemintedstyle{lovelace}
+% 	\setminted{autogobble, tabsize=4}
+
+\usepackage[
+	english=american,
+	french=guillemets,
+	autostyle=true,
+]{csquotes}
+	\renewcommand{\mkbegdispquote}[2]{\itshape\let\emph\textbf}
+	\renewcommand{\mkenddispquote}[2]{%
+		\hfill\mbox{\upshape#1#2}%
+	}
+	% Like `\foreignquote` but use the outside language's quotes not the inside's
+	\NewDocumentCommand\quoteforeign{m m}{\enquote{\textlang{#1}{#2}}}
+	% \renewcommand{\mkbegdispquote}[2]{%
+	%     \tikz[remember picture, overlay]{\fill[lightgray] (pic cs:quotestart) rectangle (pic cs:quoteend);}%
+	%     \tikzmark{quotestart}%
+	% }
+	% \renewcommand{\mkenddispquote}[2]{%
+	%     #1#2%
+	%     \hfill\tikzmark{quoteend}%
+	% }
+
+
+% Annoying package loading order, so far we have:
+% digraph packages {hyperref -> biblatex; hyperref -> hyperxmp; cleveref -> hyperref; fixme -> hyperref; bookmark -> hyperref}
+
+% \usepackage[
+% 	style=authoryear-comp,
+% 	mergedate=basic,
+% 	dashed=false,
+% 	backend=biber,
+% 	isbn=false,
+% 	maxcitenames=2,
+% 	uniquelist=false,
+% 	maxbibnames=8,
+% 	backref=true,
+% ]{biblatex}
+% 	% No small caps in french bib
+% 	\DefineBibliographyExtras{french}{\restorecommand\mkbibnamefamily}
+	% \addbibresource{biblio.bib}
+
+\usepackage{hyperxmp}  % Load before hyperref
+% \usepackage[a-3u]{pdfx}
+% \usepackage[unicode]{hyperref}  % Apparently already loaded, no idea by whom. I hate you, latex
+\hypersetup{
+	pdftitle={\pdftitle},
+	pdfauthor={\myname},
+	pdfcontactemail={\mymail},
+	colorlinks=true,
+	breaklinks=true,
+	hypertexnames=true,
+	pdfdisplaydoctitle,
+	pdflang={fr},
+	keeppdfinfo,
+}
+% \usepackage{bookmark}  % Load after hyperref 
+% \usepackage{footnotebackref}
+
+% \usepackage[status=draft]{fixme} % Load after hyperref
+% \usepackage[status=final]{fixme} % Load after hyperref
+	% \fxsetup{theme=color}
+\usepackage{cleveref}  % Load after hyperref
+
+
+%%%% License %%%%
+
+
+%%% Custom commands
+% Maths
+\NewDocumentCommand\transpose{m}{\prescript{\mathrm{t}}{}{#1}}
+
+\DeclareMathOperator\Img{Im}
+\DeclareMathOperator\Ker{Ker}
+\DeclareMathOperator\FFNN{FFNN}
+\DeclareMathOperator\LSTM{LSTM}
+\NewDocumentCommand\bLSTM{}{\overleftarrow{\LSTM}}
+\NewDocumentCommand\fLSTM{}{\overrightarrow{\LSTM}}
+\DeclareMathOperator\GRU{GRU}
+\NewDocumentCommand\bGRU{}{\overleftarrow{\GRU}}
+\NewDocumentCommand\fGRU{}{\overrightarrow{\GRU}}
+\DeclareMathOperator*\argmax{arg\,max}
+\DeclareMathOperator*\softmax{softmax}
+
+\DeclarePairedDelimiter\abs{\lvert}{\rvert}
+\DeclarePairedDelimiter\brackets{[}{]}
+\DeclarePairedDelimiterX\compset[2]{\lbrace}{\rbrace}{#1\,\delimsize|\,\mathopen{}#2}
+\DeclarePairedDelimiterX\innprod[2]{\langle}{\rangle}{#1\,\delimsize|\,\mathopen{}#2}
+\DeclarePairedDelimiter\norm{\lVert}{\rVert}
+\DeclarePairedDelimiter\nnorm{\Vvert}{\Vvert}
+\DeclarePairedDelimiter\discseg{⟦}{⟧}
+\DeclarePairedDelimiter\ceil{⌈}{⌉}
+\DeclarePairedDelimiter\floor{⌊}{⌋}
+\DeclarePairedDelimiter\round{⌊}{⌉}
+
+\NewDocumentCommand\fonct{ m m m m m }{
+	\left|\begin{array}{rrl}
+		#1 :  & #2 & ⟶ #3 \\
+				& #4 & ⟼ #1\mleft(#4\mright) = #5
+	\end{array}\right.
+}
+
+% Easy column vectors \vcord{a,b,c} ou \vcord[;]{a;b;c}
+% Here be black magic
+\ExplSyntaxOn
+	\NewDocumentCommand{\vcord}{O{,}m}{\vector_main:nnnn{p}{\\}{#1}{#2}}
+	\NewDocumentCommand{\tvcord}{O{,}m}{\vector_main:nnnn{psmall}{\\}{#1}{#2}}
+	\seq_new:N\l__vector_arg_seq
+	\cs_new_protected:Npn\vector_main:nnnn #1 #2 #3 #4{
+		\seq_set_split:Nnn\l__vector_arg_seq{#3}{#4}
+		\begin{#1matrix}
+			\seq_use:Nnnn\l__vector_arg_seq{#2}{#2}{#2}
+		\end{#1matrix}
+	}
+
+	\NewDocumentCommand{\concat}{sO{,}m}{
+		\IfBooleanTF{#1}{
+			\ensuremath{\brackets*{\concat_main:nnn{,~}{#2}{#3}}}
+		}{
+			\ensuremath{\brackets{\concat_main:nnn{,~}{#2}{#3}}}
+		}
+	}
+	\seq_new:N\l__concat_arg_seq
+	\cs_new_protected:Npn\concat_main:nnn #1 #2 #3 {
+		\seq_set_split:Nnn\l__concat_arg_seq{#2}{#3}
+		\seq_use:Nnnn\l__concat_arg_seq{#1}{#1}{#1}
+	}
+\ExplSyntaxOff
+	
+	
+\let\card\abs
+
+% Misc
+% from https://tex.stackexchange.com/a/27099/8547
+\makeatletter
+\NewDocumentCommand\centerfloat{}{%
+	\parindent \z@%
+	\leftskip \z@ \@plus 1fil \@minus \textwidth%
+	\rightskip\leftskip%
+	\parfillskip \z@skip%
+}
+\makeatother
+
+\NewDocumentCommand\definition{ o m }{\emph{#2}}
+
+\title{\titlepagetitle}
+\author{\myname}
+\date{\docdate}
+
+\firstpageheader{\bfseries\Large\coursetitle\\\examtitle}{}{\bfseries\Large\docdate}
+% \runningheader{\coursetitle}{\examtitle}{\docdate}
+\firstpagefooter{}{\thepage\ / \numpages}{}
+\runningfooter{}{\thepage\ / \numpages}{}
+
+%%%% Commandes spécifiques au document %%%%
+
+\begin{document}
+\pdfbookmark[1]{Cover}{cover}
+
+\emph{Tous les documents sont autorisés, les calculatrices sont autorisées mais probablement peu utiles. Toute tentative de réponse, même partielle sera valorisée. Merci de numéroter les pages de votre rendu. Vous pouvez passer des questions, mais merci de garder vos réponses dans l'ordre dans la mesure du possible et de numéroter très clairement vos réponses.}
+
+\section{Applications directes}
+
+\begin{questions}
+	\question Développer au maximum et réduire la formule logique \((\operatorname{non}\,(A \operatorname{et}\,B))\operatorname{ou}\,\operatorname{FAUX}\).
+	\question Simplifier \(\{0, 1, 2, 5, 6\} ∩ \{0, 2, 4, 6, 8\}\)
+	\question Calculer les expressions suivantes
+		\begin{parts}
+			\part
+				\begin{equation}
+					\begin{pmatrix}
+						1  & -1 & 0\\
+						0  &  2 & 0\\
+						-1 & -1 & 0
+					\end{pmatrix}
+					×
+					\begin{pmatrix}
+						1\\1\\1
+					\end{pmatrix}
+					+ 3
+					\begin{pmatrix}
+						0\\0\\-1
+					\end{pmatrix}
+				\end{equation}
+			\part
+				\begin{equation}
+					\frac{1}{2}
+					\begin{pmatrix}
+						1 & -1\\
+						-1 & -1
+					\end{pmatrix}
+					×
+					\begin{pmatrix}
+						1\\1
+					\end{pmatrix}
+					-
+					\begin{pmatrix}
+						1\\1
+					\end{pmatrix}
+				\end{equation}
+			\part
+				\begin{equation}
+					\innprod*{\vcord{1,2,3}}{\vcord{1,2,3}}
+				\end{equation}
+		\end{parts}
+	\question Résoudre le système d'équations suivant :
+		\begin{equation}
+			\begin{cases}
+				x + y = 1\\
+				2x - y = 2\\
+			\end{cases}
+		\end{equation}
+\end{questions}
+
+\section{Norme euclidienne}
+
+\subsection{Rappels}
+
+Soit \(u=\tvcord{u_1, ⋮, u_n}∈ℝ^n\) et \(v=\tvcord{v1, ⋮, v_n}∈ℝ^n\), le produit scalaire de \(u\) et \(v\) est le réel
+
+\begin{equation}
+   \innprod{u}{v} = u_1v_1 + … + u_nv_n = ∑_{i=1}^nu_iv_i
+\end{equation}
+
+On sait de plus que \(\innprod{u}{v}=\innprod{v}{u}\), que pour tout \(x∈ℝ^n\), \(\innprod{u+x}{v}=\innprod{u}{v} +\innprod{x}{v}\), et que pour tout \(λ∈ℝ\), \(\innprod{λu}{v}=λ\innprod{u}{v}\).
+
+\subsection{Définition et exemples}
+Soit \(n\), un entier positif et \(v∈ℝ^n\), on appelle \emph{norme euclidienne de \(v\)}, le réel
+
+\begin{equation}
+    \norm{v} = √{\innprod{v}{v}}
+\end{equation}
+
+En dimension \num{2} et \num{3}, cette quantité correspond à la \emph{longueur} (respectivement du plan et de l'espace) du vecteur \(v\).
+
+\begin{questions}
+	\question Calculer \(\norm{\tvcord{1,3}}\), \(\norm{\tvcord{0,0}}\) et \(\norm{\tvcord{1,1,1}}\),
+	\question Placer dans un repère du plan les vecteurs suivants
+		\begin{enumerate*}[label=\roman*]
+			\item \(\tvcord{0,2}\)
+			\item \(\tvcord{1,0}\)
+			\item \(\tvcord{1,1}\)
+			\item \(\tvcord{-1,-3}\)
+		\end{enumerate*}
+	\question Calculer la norme de chacun des vecteurs de la question précédente.
+	\question Soit \(x∈ℝ\) que vaut \(\norm{x}\) ? On pourra distinguer les cas \(x<0\) et \(x⩾0\) (ou utiliser une notation appropriée si vous en connaissez une).
+\end{questions}
+
+\subsection{Propriétés}
+
+\begin{questions}
+	\question Soit \(0_n\), le vecteur nul de \(R^n\). Que vaut \(\norm{0_n}\) ?
+    \question Soit \(v∈ℝ^n\), écrire \(\norm{v}²\) en fontion des coordonnées de \(v\). En déduire que \(\norm{v}\) est bien définie, que \(\norm{v}⩾0\) et que \(\norm{v}=0\) si et seulement si \(v=0\).
+	\question
+		\begin{parts}
+			\part Démontrer que pour tout \(v∈ℝ^n\), \(\norm{-v}=\norm{v}\). On dit que \(\norm{⋅}\) est \emph{paire}.
+			\part Démontrer que pour tout \(v∈ℝ^n\) et \(λ∈ℝ⁺\), \(\norm{λv}=λ\norm{v}\). On dit que \(\norm{⋅}\) est \emph{positivement homogène}.
+			\part Pour tout \(λ∈ℝ⁺\), on note \(\abs{λ}\) le réel valant \(λ\) si \(λ⩾0\) et \(-λ\) sinon. Déduire des questions précédentes que pour tout \(v∈ℝ^n\) et \(λ∈ℝ\), \(\norm{λv}=\abs{λ}\norm{v}\). On dit que \(\norm{⋅}\) est \emph{absolument homogène}.
+		\end{parts}
+	\question Soit \(u∈ℝ^n\) et \(v∈ℝ^n\) tels que \(\innprod{u}{v}=0\). En développant \(\innprod{u+v}{u+v}\), montrer que \(\norm{u+v}²=\norm{u}²+\norm{v}²\). Cette propriété est le théorème de Pythagore.
+	\question On admet que pour tout \(u∈ℝ^n\) et \(v∈ℝ^n\), on a \(\innprod{u}{v}⩽\norm{u}\norm{v}\). En développant \(\innprod{u+v}{u+v}\), montrer que \(\norm{u+v}⩽\norm{u}+\norm{v}\). Cette propriété s'appelle \emph{première inégalité triangulaire}\footnote{Elle correspond à la propriété géométrique que dans un triangle, la somme des longueurs des deux plus petits côtés est plus grande que la longueur du plus grand côté, ou encore que le plus court chemin entre deux points est une ligne droite.}.
+	\question On veut à présent montrer que pour tout \(u∈ℝ^n\) et \(v∈ℝ^n\), on a \(\innprod{u}{v}⩽\norm{u}\norm{v}\).
+		\begin{parts}
+			\part Soit \(P\) la fonction définie par
+				\begin{equation}
+					\fonct{P}{ℝ}{ℝ}{t}{\norm{u+tv}²}
+				\end{equation}
+				et \(t∈ℝ\) que peut-on dire du signe de \(P(t\) ?
+			\part Soit \(t₀=\frac{\innprod{u}{v}}{\norm{v}²}\). Calculer \(P(t₀)\).
+			\part Déduire des questions précédentes que \(\innprod{u}{v}⩽\norm{u}\norm{v}\). Ce résultat s'appelle \emph{inégalité de Cauchy-Schwartz}.
+		\end{parts}
+\end{questions}
+\end{document}
