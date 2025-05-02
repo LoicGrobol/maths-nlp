@@ -22,8 +22,8 @@ DTL: applications linéaires
 
 On appelle *application linéaire* toute fonction $u:ℝ^n\longrightarrow ℝ^m$ telle que
 
-1. Pour tout $x∈ℝ^n$ et pour tout $λ∈ℝ$, $u(λx) = λu(x)$.
-2. Pour tout $x∈ℝ^n$ et $y∈ℝ^n$, $u(x+y) = u(x) + u(y)$.
+1. Pour tout $x∈ℝ^n$ et pour tout $λ∈ℝ$, $u(λx) = λu(x)$. On dit que $u$ est *homogène*.
+2. Pour tout $x∈ℝ^n$ et $y∈ℝ^n$, $u(x+y) = u(x) + u(y)$. On dit que $u$ est *additivie*.
 
 Par exemple : la fonction
 
@@ -58,7 +58,7 @@ L'ensemble des applications linéaires de $E$ dans $F$ est noté $𝓛(E,F)$.
 
 ## 1. Exemples
 
-**1.1** Montrer que les application suivantes sont linéaires
+**1.1** Montrer que les applications suivantes sont linéaires
 
 $$\funct{f_1}{ℝ^5}{ℝ}{x}{x_3}$$
 
@@ -79,7 +79,7 @@ $$\funct{u_M}{ℝ^n}{ℝ^m}{X}{MX}$$
 est une application linéaire.
 
 L'objectif de la suite de ce travail est de montrer que la réciproque est vraie : pour toute
-application linéaire $u$, il existe une matrice $M$ telle que pour tout $x$, $u(x) = Mx$.
+application linéaire $u$, il existe une matrice$M$ telle que pour tout $x$, $u(x) = Mx$.
 
 ## 2. Base canonique et applications linéaires
 
@@ -121,7 +121,7 @@ $u(e_i)=v(e_i)$. On a donc la propriété suivante :
 
 ## 3. Correspondance matrice-application
 
-**3.1** Soit $u: ℝ^2\longrightarrow ℝ²$ $, une application linéaire telle que
+**3.1** Soit $u: ℝ^2\longrightarrow ℝ^2$ $, une application linéaire telle que
 
 $$
     \begin{align}

@@ -66,6 +66,7 @@
 % \usepackage  % Cool but messes with fleqn, activate if necessary{fnpct}  % Better display of footnote next to punctuation
 \usepackage{microtype}
 \usepackage{parskip}
+% \usepackage[subtle]{savetrees}
 \usepackage{siunitx}
 \sisetup{
 	detect-all,
@@ -88,6 +89,7 @@
 	\mathtoolsset{showonlyrefs, showmanualtags, mathic}	% affiche les tags manuels (\tag et \tag*) et corrige le kerning des maths inline dans un bloc italique voir la doc de mathtools
 	\usetagform{brackets}	% Utilise le style de tags défini plus haut
 
+% Load this as early as possible in the maths section
 \usepackage[
 	math-style=french,
 	warnings-off={
@@ -261,8 +263,8 @@
 
 \NewDocumentCommand\fonct{ m m m m m }{
 	\left|\begin{array}{rrl}
-		#1 :  & #2 & ⟶ #3 \\
-				& #4 & ⟼ #1\mleft(#4\mright) = #5
+		#1: & #2 & ⟶ #3 \\
+			& #4 & ⟼ #1\mleft(#4\mright) = #5
 	\end{array}\right.
 }
 
@@ -323,7 +325,9 @@
 \begin{document}
 \pdfbookmark[1]{Cover}{cover}
 
-\emph{Tous les documents sont autorisés, les calculatrices sont autorisées mais probablement peu utiles. Toute tentative de réponse, même partielle sera valorisée. Merci de numéroter les pages de votre rendu. Vous pouvez passer des questions, mais merci de garder vos réponses dans l'ordre dans la mesure du possible et de numéroter très clairement vos réponses.}
+\emph{Tous les documents sont autorisés, les calculatrices sont autorisées mais probablement peu utiles. Toute tentative de réponse, même partielle sera valorisée. Merci de numéroter les pages de votre rendu. Vous pouvez passer des questions, mais merci de garder vos réponses dans l'ordre dans la mesure du possible et de les numéroter très clairement.}
+
+\emph{Rappel : ce cours est évalué par compétences. L'objectif est donc moins de finir toutes les questions que de montrer vos capacités de calcul et de raisonnement. Ne pas répondre à tout mais le faire proprement est une meilleure stratégie que d'essayer de tout faire vite et mal.}
 
 \section{Applications directes}
 
@@ -400,16 +404,16 @@ Soit \(n\), un entier positif et \(v∈ℝ^n\), on appelle \emph{norme euclidien
 En dimension \num{2} et \num{3}, cette quantité correspond à la \emph{longueur} (respectivement du plan et de l'espace) du vecteur \(v\).
 
 \begin{questions}
-	\question Calculer \(\norm{\tvcord{1,3}}\), \(\norm{\tvcord{0,0}}\) et \(\norm{\tvcord{1,1,1}}\),
-	\question Placer dans un repère du plan les vecteurs suivants
-		\begin{enumerate*}[label=\roman*]
+	\question Calculer \(\norm*{\tvcord{1,3}}\), \(\norm*{\tvcord{0,0}}\) et \(\norm*{\tvcord{1,1,1}}\),
+	\question Représenter dans un repère du plan les vecteurs suivants :
+		\begin{enumerate*}[label=\alph*]
 			\item \(\tvcord{0,2}\)
 			\item \(\tvcord{1,0}\)
 			\item \(\tvcord{1,1}\)
 			\item \(\tvcord{-1,-3}\)
 		\end{enumerate*}
 	\question Calculer la norme de chacun des vecteurs de la question précédente.
-	\question Soit \(x∈ℝ\) que vaut \(\norm{x}\) ? On pourra distinguer les cas \(x<0\) et \(x⩾0\) (ou utiliser une notation appropriée si vous en connaissez une).
+	\question Soit \(x∈ℝ\), que vaut \(\norm{x}\) ? On pourra distinguer les cas \(x<0\) et \(x⩾0\) (ou utiliser une notation appropriée si vous en connaissez une).
 \end{questions}
 
 \subsection{Propriétés}
@@ -421,18 +425,19 @@ En dimension \num{2} et \num{3}, cette quantité correspond à la \emph{longueur
 		\begin{parts}
 			\part Démontrer que pour tout \(v∈ℝ^n\), \(\norm{-v}=\norm{v}\). On dit que \(\norm{⋅}\) est \emph{paire}.
 			\part Démontrer que pour tout \(v∈ℝ^n\) et \(λ∈ℝ⁺\), \(\norm{λv}=λ\norm{v}\). On dit que \(\norm{⋅}\) est \emph{positivement homogène}.
-			\part Pour tout \(λ∈ℝ⁺\), on note \(\abs{λ}\) le réel valant \(λ\) si \(λ⩾0\) et \(-λ\) sinon. Déduire des questions précédentes que pour tout \(v∈ℝ^n\) et \(λ∈ℝ\), \(\norm{λv}=\abs{λ}\norm{v}\). On dit que \(\norm{⋅}\) est \emph{absolument homogène}.
+			\part Pour tout \(λ∈ℝ\), on note \(\abs{λ}\) le réel valant \(λ\) si \(λ⩾0\) et \(-λ\) sinon. Déduire des questions précédentes que pour tout \(v∈ℝ^n\) et \(λ∈ℝ\), \(\norm{λv}=\abs{λ}\norm{v}\). On dit que \(\norm{⋅}\) est \emph{absolument homogène}.
 		\end{parts}
 	\question Soit \(u∈ℝ^n\) et \(v∈ℝ^n\) tels que \(\innprod{u}{v}=0\). En développant \(\innprod{u+v}{u+v}\), montrer que \(\norm{u+v}²=\norm{u}²+\norm{v}²\). Cette propriété est le théorème de Pythagore.
 	\question On admet que pour tout \(u∈ℝ^n\) et \(v∈ℝ^n\), on a \(\innprod{u}{v}⩽\norm{u}\norm{v}\). En développant \(\innprod{u+v}{u+v}\), montrer que \(\norm{u+v}⩽\norm{u}+\norm{v}\). Cette propriété s'appelle \emph{première inégalité triangulaire}\footnote{Elle correspond à la propriété géométrique que dans un triangle, la somme des longueurs des deux plus petits côtés est plus grande que la longueur du plus grand côté, ou encore que le plus court chemin entre deux points est une ligne droite.}.
 	\question On veut à présent montrer que pour tout \(u∈ℝ^n\) et \(v∈ℝ^n\), on a \(\innprod{u}{v}⩽\norm{u}\norm{v}\).
 		\begin{parts}
+			\part Démontrer l'inégalité ci-dessus dans le cas \(v=0\).
 			\part Soit \(P\) la fonction définie par
 				\begin{equation}
 					\fonct{P}{ℝ}{ℝ}{t}{\norm{u+tv}²}
 				\end{equation}
 				et \(t∈ℝ\) que peut-on dire du signe de \(P(t\) ?
-			\part Soit \(t₀=\frac{\innprod{u}{v}}{\norm{v}²}\). Calculer \(P(t₀)\).
+			\part On suppose que \(v≠0\). Soit \(t₀=\frac{\innprod{u}{v}}{\norm{v}²}\). Calculer \(P(t₀)\).
 			\part Déduire des questions précédentes que \(\innprod{u}{v}⩽\norm{u}\norm{v}\). Ce résultat s'appelle \emph{inégalité de Cauchy-Schwartz}.
 		\end{parts}
 \end{questions}
