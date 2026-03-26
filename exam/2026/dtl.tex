@@ -9,15 +9,15 @@
 
 \RequirePackage{xparse}
 % Settings
-\newcommand\myname{Loïc Grobol}
+\newcommand\myname{L. Grobol}
 \newcommand\mylab{}
-\newcommand\coursetitle{Mathématiques pour le TAL}
-\newcommand\examtitle{Partiel final}
+\newcommand\coursetitle{Mathématiques pour le TAL 2}
+\newcommand\examtitle{Devoir en temps libre}
 \newcommand\pdftitle{\coursetitle : \examtitle}
 \newcommand\mymail{lgrobol@parisnanterre.fr}
 \newcommand\titlepagetitle{\pdftitle}
 \newcommand\titlepagesubtitle{}
-\newcommand\docdate{2025-05-02}  % chktex 8
+\newcommand\docdate{2026-03-26}  % chktex 8
 \newcommand\conference{M1 Plurital}
 
 %%%% Type de document %%%%
@@ -325,123 +325,113 @@
 \begin{document}
 \pdfbookmark[1]{Cover}{cover}
 
-\emph{Tous les documents sont autorisés, les calculatrices sont autorisées mais probablement peu utiles. Toute tentative de réponse, même partielle sera valorisée. Merci de numéroter les pages de votre rendu. Vous pouvez passer des questions, mais merci de garder vos réponses dans l'ordre dans la mesure du possible et de les numéroter très clairement.}
+\section{Valeur absolue}
 
-\emph{Rappel : ce cours est évalué par compétences. L'objectif est donc moins de finir toutes les questions que de montrer vos capacités de calcul et de raisonnement. Ne pas répondre à tout mais le faire proprement est une meilleure stratégie que d'essayer de tout faire vite et mal.}
+\begin{definition}[Valeur absolue]
+	On appelle \definition{valeur absolue de \(ℝ\)} la fonction
+%
+	\begin{equation}
+		\left|\begin{array}{rrl}
+			\abs{⋅}: & ℝ^n & ⟶ ℝ \\
+				& x & ⟼ \abs{x}=
+					\begin{dcases*}
+				 		x & si \(x ⩾ 0\)\\
+						-x & sinon
+					\end{dcases*}
+		\end{array}\right.
+	\end{equation}
+\end{definition}
 
-\section{Applications directes}
+Remarque : comme la définition de la valeur absolue est différente pour les réels positifs et les
+réels négatifs, les démonstrations la concernant nécessitent souvent de distinguer plusieurs cas à
+traiter indépendamment.
 
 \begin{questions}
-	\question Développer au maximum et réduire la formule logique \((\operatorname{non}\,(A \operatorname{et}\,B))\operatorname{ou}\,\operatorname{FAUX}\).
-	\question Simplifier \(\{0, 1, 2, 5, 6\} ∩ \{0, 2, 4, 6, 8\}\)
-	\question Calculer les expressions suivantes
-		\begin{parts}
-			\part
-				\begin{equation}
-					\begin{pmatrix}
-						1  & -1 & 0\\
-						0  &  2 & 0\\
-						-1 & -1 & 0
-					\end{pmatrix}
-					×
-					\begin{pmatrix}
-						1\\1\\1
-					\end{pmatrix}
-					+ 3
-					\begin{pmatrix}
-						0\\0\\-1
-					\end{pmatrix}
-				\end{equation}
-			\part
-				\begin{equation}
-					\frac{1}{2}
-					\begin{pmatrix}
-						1 & -1\\
-						-1 & -1
-					\end{pmatrix}
-					×
-					\begin{pmatrix}
-						1\\1
-					\end{pmatrix}
-					-
-					\begin{pmatrix}
-						1\\1
-					\end{pmatrix}
-				\end{equation}
-			\part
-				\begin{equation}
-					\innprod*{\vcord{1,2,3}}{\vcord{1,2,3}}
-				\end{equation}
-		\end{parts}
-	\question Résoudre le système d'équations suivant :
+	\question Que valent \(\abs{2713}\), \(\abs{-1213}\), \(\abs{0}\) et \(\abs{19-91}\) ?
+	\question Soit \(a∈ℝ\). En distinguant les cas \(a⩽0\) et \(a⩾0\), montrer que \(a⩽\abs{a}\) et \(\abs{-a} = \abs{a}\). En déduire que \(-a⩽\abs{a}\).
+	\question Soit \(a∈ℝ\) et \(b∈ℝ\), montrer que \(\abs{ab} = \abs{a}\abs{b}\). On pourra distinguer le cas où \(a\) et \(b\) sont de même signe et le cas où ils sont de signes opposés.
+	\question Soit \(a∈ℝ\) et \(b∈ℝ\). Montrer que\(\abs{a+b} ⩽ \abs{a} + \abs{b}\). On pourra distinguer les cas \(a+b ⩾ 0\) et \(a+b⩽0\).
+	\question Soit \(a∈ℝ\) et \(b∈ℝ\) tels que \(b⩾a\) et \(b⩾-a\), montrer que \(b⩾\abs{a}\).
+\end{questions}
+
+\section{Normes vectorielles}
+
+\begin{definition}[Norme vectorielle]
+	On appelle \definition{norme vectorielle} sur un espace vectoriel \(E\) (par exemple \(ℝ^n\)), toute fonction \(N: E → ℝ\) telle que :
+
+	\begin{enumerate}[label=(\roman*)]
+		\item \(N\) est \emph{séparante} : pour tout \(u∈E\), \(N(u) ⩾ 0\), et \(N(u) = 0\) si et seulement si \(u=0\).
+		\item \(N\) est \emph{absolument homogène} : pour tout \(u∈E\), pour tout \(λ∈ℝ\), \(N(λu) = \abs{λ}N(u)\).
+		\item \(N\) est \emph{sous-additive} : pour tout \(u∈E\), pour tout \(v∈E\), on a \(N(u+v) ⩽ N(u) + N(v)\).
+	\end{enumerate}
+\end{definition}
+
+\begin{questions}
+	\question Montrer que la valeur absolue est une norme sur \(ℝ\).
+	\question Soit \(N\), une norme sur \(E\), on veut montrer que la fonction suivante est une distance sur \(ℝ^n\) :
+		%
 		\begin{equation}
-			\begin{cases}
-				x + y = 1\\
-				2x - y = 2\\
-			\end{cases}
+			\fonct{d_N}{E×E}{ℝ}{u, v}{\norm{v-u}}
 		\end{equation}
+		
+		\begin{parts}
+			\part Soit \(u∈E\), montrer que \(d_N(u, u) = 0\)
+			\part Soit \(u∈E\) et \(v∈E\) tels que \(d_N(u,v) = 0\), montrer que \(u = v\). On rappel que deux vecteurs sont égaux si et seulement si \(u-v=0\).
+			\part Soit \(u∈E\) et \(v∈E\), montrer que \(d_N(u,v)=d_N(v,u)\).
+			\part Soit \(u∈E\), \(v∈E\) et \(w∈E\), montrer que \(d(u,w) ⩽ d(u,v) + d(v,w)\). On pourra utiliser le fait que \(u-w = (u-v) + (v-w)\). 
+			\part Déduire des questions précédentes que \(d_N\) est une distance sur \(ℝ^n\).
+		\end{parts}
+	\question Soit \(u∈E\) et \(v∈E\)
+		\begin{parts}
+			\part Montrer que \(N(u-v) = N(v-u)\).
+			\part En écrivant \(N(u-v) = N(u-v) + N(v) - N(v)\) et en utilisant la sous-additivité de \(N\), montrer  que \(N(u-v) ⩾ N(u) - N(v)\).
+			\part Montrer que \(N(u-v) ⩾ N(v) - N(u)\) et en déduire que \(N(u-v) ⩾ \abs{N(u) - N(v)}\).
+		\end{parts}
+		\emph{Cette propriété est la \emph{seconde inégalité triangulaire}, elle peut aussi se montrer dans le cas plus général des distances.}
 \end{questions}
 
-\section{Norme euclidienne}
+\section{Norme euclidienne de \(ℝ^n\)}
 
-\subsection{Rappels}
-
-Soit \(u=\tvcord{u_1, ⋮, u_n}∈ℝ^n\) et \(v=\tvcord{v1, ⋮, v_n}∈ℝ^n\), le produit scalaire de \(u\) et \(v\) est le réel
+\textbf{Rappel} : Pour tout \(n∈ℕ\), on appelle \definition{norme euclidienne de \(ℝ^n\)} la fonction
 %
 \begin{equation}
-   \innprod{u}{v} = u_1v_1 + … + u_nv_n = ∑_{i=1}^nu_iv_i
+	\left|\begin{array}{rrl}
+		\norm{⋅}_2: & ℝ^n & ⟶ ℝ \\
+			& u & ⟼ \norm{u}_2 = √{\innprod{u}{u}}
+	\end{array}\right.
 \end{equation}
-%
-On sait de plus que \(\innprod{u}{v}=\innprod{v}{u}\), que pour tout \(x∈ℝ^n\), \(\innprod{u+x}{v}=\innprod{u}{v} +\innprod{x}{v}\), et que pour tout \(λ∈ℝ\), \(\innprod{λu}{v}=λ\innprod{u}{v}\).
 
-\subsection{Définition et exemples}
-Soit \(n\), un entier positif et \(v∈ℝ^n\), on appelle \emph{norme euclidienne de \(v\)}, le réel
-%
-\begin{equation}
-    \norm{v} = √{\innprod{v}{v}}
-\end{equation}
-%
-En dimension \num{2} et \num{3}, cette quantité correspond à la \emph{longueur} du vecteur \(v\).
+Quand il n'y a pas d'ambiguïté (comme dans cet exercice), on la note simplement \(\norm{u}\) (sans
+le \(2\) en indice.
 
-\begin{questions}
-	\question Calculer \(\norm*{\tvcord{1,3}}\), \(\norm*{\tvcord{0,0}}\) et \(\norm*{\tvcord{1,1,1}}\),
-	\question Représenter dans un repère du plan les vecteurs suivants :
-		\begin{enumerate*}[label=\alph*]
-			\item \(\tvcord{0,2}\)
-			\item \(\tvcord{1,0}\)
-			\item \(\tvcord{1,1}\)
-			\item \(\tvcord{-1,-3}\)
-		\end{enumerate*}
-	\question Calculer la norme de chacun des vecteurs de la question précédente.
-	\question Soit \(x∈ℝ\), que vaut \(\norm{x}\) ? On pourra distinguer les cas \(x<0\) et \(x⩾0\) (ou utiliser une notation appropriée si vous en connaissez une).
-\end{questions}
-
-\subsection{Propriétés}
+On veut montrer que la norme euclidienne de \(ℝ^n\) est bien une norme.
 
 \begin{questions}
 	\question Soit \(0_n\), le vecteur nul de \(ℝ^n\). Que vaut \(\norm{0_n}\) ?
-    \question Soit \(v∈ℝ^n\), écrire \(\norm{v}²\) en fonction des coordonnées de \(v\). En déduire que \(\norm{v}\) est bien définie, que \(\norm{v}⩾0\) et que \(\norm{v}=0\) si et seulement si \(v=0\).
+	\question Soit \(v∈ℝ^n\), écrire \(\norm{v}²\) en fonction des coordonnées de \(v\). En déduire que \(\norm{v}\) est bien définie, que \(\norm{v}⩾0\) et que \(\norm{v}=0\) si et seulement si \(v=0\).
 	\question
 		\begin{parts}
 			\part Démontrer que pour tout \(v∈ℝ^n\), \(\norm{-v}=\norm{v}\). On dit que \(\norm{⋅}\) est \emph{paire}.
-			\part Démontrer que pour tout \(v∈ℝ^n\) et \(λ∈ℝ⁺\), \(\norm{λv}=λ\norm{v}\). On dit que \(\norm{⋅}\) est \emph{positivement homogène}.
-			\part Pour tout \(λ∈ℝ\), on note \(\abs{λ}\) le réel valant \(λ\) si \(λ⩾0\) et \(-λ\) sinon. Déduire des questions précédentes que pour tout \(v∈ℝ^n\) et \(λ∈ℝ\), \(\norm{λv}=\abs{λ}\norm{v}\). On dit que \(\norm{⋅}\) est \emph{absolument homogène}.
+			\part Démontrer que pour tout \(v∈ℝ^n\) et \(λ∈ℝ\), si \(λ⩾0\), alors, \(\norm{λv}=λ\norm{v}\). On dit que \(\norm{⋅}\) est \emph{positivement homogène}.
+			\part Déduire des questions précédentes que pour tout \(v∈ℝ^n\) et \(λ∈ℝ\), \(\norm{λv}=\abs{λ}\norm{v}\).
 		\end{parts}
-	\question Soit \(u∈ℝ^n\) et \(v∈ℝ^n\) tels que \(\innprod{u}{v}=0\). En développant \(\innprod{u+v}{u+v}\), montrer que \(\norm{u+v}²=\norm{u}²+\norm{v}²\). Cette propriété est le théorème de Pythagore.
-	\question On admet que pour tout \(u∈ℝ^n\) et \(v∈ℝ^n\), on a \(\innprod{u}{v}⩽\norm{u}\norm{v}\). En développant \(\innprod{u+v}{u+v}\), montrer que \(\norm{u+v}⩽\norm{u}+\norm{v}\). Cette propriété s'appelle \emph{première inégalité triangulaire}\footnote{Elle correspond à la propriété géométrique que dans un triangle, la somme des longueurs des deux plus petits côtés est plus grande que la longueur du plus grand côté, ou encore que le plus court chemin entre deux points est une ligne droite.}.
-	\question On veut à présent montrer que pour tout \(u∈ℝ^n\) et \(v∈ℝ^n\), on a \(\innprod{u}{v}⩽\norm{u}\norm{v}\).
+	\question\footnote{Cette propriété est le théorème de Pythagore :)} Soit \(u∈ℝ^n\) et \(v∈ℝ^n\) tels que \(\innprod{u}{v}=0\). En développant \(\innprod{u+v}{u+v}\), montrer que \(\norm{u+v}²=\norm{u}²+\norm{v}²\).
+	\question On veut montrer que pour tout \(u∈ℝ^n\) et \(v∈ℝ^n\), on a \(\innprod{u}{v}⩽\norm{u}\norm{v}\).
 		\begin{parts}
 			\part Démontrer l'inégalité ci-dessus dans le cas \(v=0\).
 			\part Soit \(P\) la fonction définie par
 				\begin{equation}
 					\fonct{P}{ℝ}{ℝ}{t}{\norm{u+tv}²}
 				\end{equation}
-				et \(t∈ℝ\) que peut-on dire du signe de \(P(t)\) ?
-			\part On suppose que \(v≠0\). Soit \(t₀=-\frac{\innprod{u}{v}}{\norm{v}²}\). Montrer en développant l'expression que
+				Soit \(x∈ℝ\), que peut-on dire du signe de \(P(x)\) ?
+			\part On suppose que \(v≠0\). Soit \(t₀=-\frac{\innprod{u}{v}}{\norm{v}²}\). Montrer en développant le produit scalaire que
 				\begin{equation}
 					P(t₀) = \norm{u}² - \frac{\innprod{u}{v}}{\norm{v}²}
 				\end{equation}
-			\part Déduire des questions précédentes que \(\innprod{u}{v}⩽\norm{u}\norm{v}\). Ce résultat s'appelle \emph{inégalité de Cauchy-Schwartz}.
+			\part Déduire des questions précédentes que \(\innprod{u}{v}⩽\norm{u}\norm{v}\). Ce résultat s'appelle \emph{inégalité de Cauchy-Schwartz}. Rappel : si \(0 ⩽ x ⩽ y\), alors \(√{x} ⩽ √{y}\).
 		\end{parts}
+	\question En développant \(\innprod{u+v}{u+v}\), montrer que \(\norm{u+v}⩽\norm{u}+\norm{v}\).
+	\question Déduire des questions précédentes que la norme euclidienne de \(ℝ^n\) est bien une norme sur \(ℝ^n\).
 \end{questions}
+
 \end{document}
